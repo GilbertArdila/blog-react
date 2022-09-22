@@ -15,3 +15,11 @@
     margin-left: 10px;
     color: white;
 }
+.revisiones{
+    width: 250px;
+    height: auto;
+    color: white;
+    margin: 0 auto;
+    font-size: 2rem;
+    border:2px dotted red
+}
