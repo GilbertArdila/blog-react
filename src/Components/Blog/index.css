@@ -1,0 +1,17 @@
+.bloglink-li a{
+    font-size: 2rem;
+    color: blue;
+    text-decoration: none;
+}
+.blogpost{
+    width: 100%;
+    
+}
+.blogpost-content{
+    font-size: 2rem;
+    margin: 5px 10px;
+}
+.blogopst-author{
+    margin-left: 10px;
+    color: white;
+}

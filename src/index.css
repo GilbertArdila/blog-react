@@ -10,21 +10,43 @@ body{
   font-size: 1.6rem;
 }
 .btn{
-  width: 50%;
+   width:100px;
     padding: 2px;
     border-radius: 10px;
-    background-color: rgba(0, 0, 255, 0.842);
-    margin: 0 auto;
+    margin-left: 10px;
     margin-top: 20px;
-    color:white
+    
+}
+.btn:hover{
+  transform: scale(1.5);
+
+}
+.succes{
+  border: 1px solid blue;
+  
+}
+.succes:hover{
+  background-color: blue;
+  color:black;
+}
+.warning{
+  border: 1px solid yellow;
+  
+}
+.warning:hover{
+  background-color: yellow;
+  color:black;
+}
+.danger{
+  border: 1px solid red;
+  
+}
+.danger:hover{
+  background-color: red;
+  color:black;
 }
 h1{
   font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
-}
-@media(min-width:768px){
-  .btn{
-    width: 20%;
-  }
 }

@@ -1,11 +1,12 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { blogdata } from '../BlogData'
-import { BlogLink } from '../Components/BlogLink'
+import { blogdata } from '../../BlogData'
+import { BlogLink } from '../../Components'
+import './index.css'
 const Blog = () => {
   
   return (
-    <>
+    <div className='blog'>
     <h1>Blog</h1>
     <Outlet/>
     <ul>
@@ -16,7 +17,7 @@ const Blog = () => {
     ))}
     </ul>
     
-    </>
+    </div>
     
   )
 }

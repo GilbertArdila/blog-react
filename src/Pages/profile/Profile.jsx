@@ -12,7 +12,7 @@ const Profile = () => {
     <h1 className='profile-title'>Perfil</h1>
     <p className='profile-name'>{`Bienvenido  ${auth.userData.user} `}</p>
     <p className='profile-password'>{`tu clave de ingreso es ${auth.userData.password}`}</p>
-    <button className='profile-button btn'>Cambiar clave</button>
+    <button className='succes btn'>Cambiar clave</button>
     </div>
     
     

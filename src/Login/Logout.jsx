@@ -18,7 +18,7 @@ const Logout = () => {
        <label htmlFor='user'>{'¿Deseas salir?'}</label>
       
 
-       <button type='submit' className='btn'  >Salir</button>
+       <button type='submit' className='btn warning'  >Salir</button>
 
      </form>
     </div>

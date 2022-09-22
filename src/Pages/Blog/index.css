@@ -1,0 +1,15 @@
+.blog{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-color: grey;
+}
+.blog ul{
+    width: 80%;
+    height: auto;
+    min-height: 150px;
+    margin: 0 auto;
+    list-style: none; 
+      
+}

@@ -36,7 +36,7 @@ const Login = () => {
        <label htmlFor='password'>Password</label>
        <input id='password' value={password} onChange={e=>setPassword(e.target.value)}/>
 
-       <button className='btn' type='submit'  >Enviar</button>
+       <button className='btn succes' type='submit'  >Enviar</button>
 
      </form>
    </div>

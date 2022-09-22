@@ -5,7 +5,7 @@ import { Login,Logout } from '../Login'
 import { Home,Blog,Profile,NotFound} from '../Pages'
 import{AuthProvider, PrivateRoute} from '../Login/auth'
 
-const Router = () => {
+const Router = ({setModal,setBlog,blog}) => {
   return (
     <HashRouter>
       <AuthProvider>
@@ -15,7 +15,11 @@ const Router = () => {
       <Route path='/home' element={<Home/>}/>
       
       <Route path='/blog' element={<Blog/>}>
-         <Route path=':slug' element={<Blogpost/>}/>
+         <Route path=':slug' element={<Blogpost 
+         setModal={setModal}
+         setBlog={setBlog}
+         blog={blog}
+         />}/>
       </Route>
 
       <Route path='/login' element={<Login/>}/>

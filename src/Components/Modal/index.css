@@ -1,0 +1,18 @@
+.modal{
+    
+    position: absolute;
+    top: calc(5%);
+    left: calc(10%);
+    width: calc(80%);
+    height: calc(60%);
+    margin: 0 auto;
+    padding-top: 50px;
+    background-color: rgba(61, 58, 58, 0.705);
+    border-radius: 10px;
+    box-shadow: 0;
+}
+.modal form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
