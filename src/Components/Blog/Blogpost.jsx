@@ -1,9 +1,8 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { blogdata } from './../../BlogData'
 import { useAuth } from '../../Login/auth'
-import {revisiones}from '../../revisiones'
 import './index.css'
+import {getData,postData,deletePost} from '../../Api/Services'
 
 const Blogpost = ({setModal,setBlog,blog}) => {
   
@@ -11,54 +10,84 @@ const Blogpost = ({setModal,setBlog,blog}) => {
     const navigate= useNavigate();
     const auth=useAuth();
 
-    //estado para la revisión del blog
-    const [revision, setRevision] = React.useState('')
+    /************************************************************* */
+    //para obtener los blogpost
+    const [blogdata, setBlogdata] = React.useState([])
+   
 
+    /********************************************************************** */
+    //estado  y useEfect para la lectura de las revisiónes del blog cuando es admin
+    const [revision, setRevision] = React.useState('')
+    //useEffect para la revisión 
+    React.useEffect(() => {
+      getData('/revisiones',setRevision);
+      getData('/blogdata',setBlogdata);
+    }, []);
+    /********************************************************************** */
+    
+    
     const onReturn=()=>{
-      navigate('/home')
+      navigate('/blog')
     }
 
     const onEdit=()=>{
       setModal(true)
       setBlog(Blogpost)
     }
-    const onDelete=(Blogpost)=>{
-    
-     const index=blogdata.findIndex(blog=>blog.title===Blogpost.title)
-    
-     blogdata.slice(index,1)
-     console.log(blogdata)
+    /********************************************************************** */
+    //para borrar algun blog
+    const onDelete=(id)=>{
+     deletePost(`/blogdata/${id}`)
+     navigate('/blog')
     }
+    /********************************************************************** */
 
-    const onCheck=({revision,Blogpost})=>{
-      revisiones.push({"Contenido":revision,"Blog":Blogpost.title})
-      setRevision('')
+    /********************************************************************** */
+    //para escribir nuevas revisiones de blog
+    const [nuevaRevision, setNuevaRevision] = React.useState('');
+    const onCheck=({nuevaRevision,Blogpost})=>{
+      let data={
+        Revision:nuevaRevision,
+        Blog:Blogpost.title
+      }
+    
+     postData('/revisiones',data)
     }
+  /********************************************************************** */
+    let Blogpost;
+   
+   
+   blogdata.forEach(blog=>{
+     if(blog.title.split(' ').join('-')===slug)
+      
+      Blogpost=blog
     
-      const Blogpost=blogdata.find(post=>post.title.split(' ').join('-')===slug);
     
-     const admin=auth.userData?.isAdmin || Blogpost.author===auth.userData?.user;
-     const editor=auth.userData?.isEditor || Blogpost.author===auth.userData?.user;
-     const checker=auth.userData?.isChecker || Blogpost.author===auth.userData?.user;
+   })
+  
+     const admin=auth.userData?.isAdmin || Blogpost?.author===auth.userData?.user;
+     const editor=auth.userData?.isEditor || Blogpost?.author===auth.userData?.user;
+     const checker=auth.userData?.isChecker || Blogpost?.author===auth.userData?.user;
   return (
     <div className='blogpost'>
-     <h1>{Blogpost.title}</h1>
+     <h1>{Blogpost?.title}</h1>
      
-     <p className='blogpost-content'>{Blogpost.content}</p>
-     <p className='blogopst-author'>{`Author:${' '}${Blogpost.author}`}</p>
+     <p className='blogpost-content'>{Blogpost?.content}</p>
+     <p className='blogopst-author'>{`Author:${' '}${Blogpost?.author}`}</p>
+
      {admin && (
       <>
-      { revisiones.map(revision=>(
-        <div className='revisiones' key={revision.Blog}>
-          <p>{`mensaje:${' '}${revision.Contenido}`}</p>
-          <p>{`Blog:${' '}${revision.Blog}`}</p>
+      { revision.length && revision.map(rev=>(
+        <div className='revisiones' key={rev.id}>
+          <p>{`mensaje:${' '}${rev.Revision}`}</p>
+          <p>{`Blog:${' '}${rev.Blog}`}</p>
         </div>
       ))}
       <button className=' btn warning' onClick={onEdit}>Editar blog</button>
        <button
         className=' btn danger'
         onClick={()=>
-          onDelete(Blogpost)
+          onDelete(Blogpost.id)
           }
         >Borrar blog</button>
       </>
@@ -70,12 +99,12 @@ const Blogpost = ({setModal,setBlog,blog}) => {
      )}
       {checker&&(
         <><textarea
-        value={revision}
-        onChange={(e)=>setRevision(e.target.value)}
+        value={nuevaRevision}
+        onChange={(e)=>setNuevaRevision(e.target.value)}
         />
       <button 
       className='btn succes'
-      onClick={()=>onCheck({revision,Blogpost})}
+      onClick={()=>onCheck({nuevaRevision,Blogpost})}
       >Enviar revisión </button></>
         
      )}

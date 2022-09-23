@@ -17,5 +17,9 @@ redirect
 
 autorización
 
+Con el comando start inicializamos el json servermpara consumir la fakeAPI
+
+
+
 
 
