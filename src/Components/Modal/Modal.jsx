@@ -1,14 +1,22 @@
 import React from 'react'
 import  ReactDOM  from "react-dom";
 import './index.css'
+import {putData} from '../../Api/Services'
 
 
 function Modal({blog,setModal}){
     const [contenido, setContenido] = React.useState('')
+   
 
     const onUpdate=(e)=>{
         e.preventDefault();
-        blog.content=contenido
+       const data={
+        author:blog.author,
+        title:blog.title,
+        content:contenido
+       }
+       const id=blog.id
+       putData(`/blogdata/${id}`,data)
         setModal(false)
     }
 

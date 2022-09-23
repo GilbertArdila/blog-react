@@ -13,6 +13,14 @@ const getData=async(url,set)=>{
         console.log(error);
     }
  }
+ const putData=async(url,data)=>{
+    try {
+        const response=await AXIOS.put(url,data);
+       
+    } catch (error) {
+        console.log(error)
+    }
+ }
 
  const deletePost=async(url)=>{
     try {
@@ -23,4 +31,4 @@ const getData=async(url,set)=>{
     }
  }
 
-export{getData,postData,deletePost};
+export{getData,postData,deletePost,putData};

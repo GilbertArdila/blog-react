@@ -17,6 +17,7 @@ function App() {
       />
       {modal&& <Modal
       setModal={setModal}
+     
       blog={blog}
       />}
      

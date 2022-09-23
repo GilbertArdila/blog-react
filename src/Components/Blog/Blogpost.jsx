@@ -22,17 +22,20 @@ const Blogpost = ({setModal,setBlog,blog}) => {
     React.useEffect(() => {
       getData('/revisiones',setRevision);
       getData('/blogdata',setBlogdata);
-    }, []);
+    }, [blogdata]);
     /********************************************************************** */
     
     
     const onReturn=()=>{
       navigate('/blog')
     }
-
-    const onEdit=()=>{
+/************************************************** */
+//para editar el post
+    const onEdit=(id)=>{
       setModal(true)
       setBlog(Blogpost)
+      
+      
     }
     /********************************************************************** */
     //para borrar algun blog
@@ -50,7 +53,6 @@ const Blogpost = ({setModal,setBlog,blog}) => {
         Revision:nuevaRevision,
         Blog:Blogpost.title
       }
-    
      postData('/revisiones',data)
     }
   /********************************************************************** */
@@ -83,7 +85,7 @@ const Blogpost = ({setModal,setBlog,blog}) => {
           <p>{`Blog:${' '}${rev.Blog}`}</p>
         </div>
       ))}
-      <button className=' btn warning' onClick={onEdit}>Editar blog</button>
+      <button className=' btn warning' onClick={()=>onEdit(Blogpost.id)}>Editar blog</button>
        <button
         className=' btn danger'
         onClick={()=>
@@ -98,14 +100,15 @@ const Blogpost = ({setModal,setBlog,blog}) => {
       <button className='btn succes' onClick={onEdit}>Editar</button>
      )}
       {checker&&(
-        <><textarea
+        <div className='checker'><textarea
+        className='checker-textarea'
         value={nuevaRevision}
         onChange={(e)=>setNuevaRevision(e.target.value)}
         />
       <button 
       className='btn succes'
       onClick={()=>onCheck({nuevaRevision,Blogpost})}
-      >Enviar revisión </button></>
+      >Enviar revisión </button></div>
         
      )}
      <button className='btn succes' onClick={onReturn}>{'Back'}</button>

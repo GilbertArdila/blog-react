@@ -24,3 +24,10 @@
     border:2px dotted blue
     
 }
+.checker{
+ display: flex;
+ justify-content: center;
+ width: 80%;
+ height: auto;
+ margin: 10px auto;
+}
