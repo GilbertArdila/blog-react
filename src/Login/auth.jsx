@@ -12,6 +12,8 @@ rol:'Editor'},
 {nombre:'Geronimo',
 rol:'Checker'}
 ];
+
+
 //creamos un contexto
 const authContext = React.createContext();
 
@@ -28,7 +30,13 @@ function AuthProvider({ children }) {
     const isChecker=adminList.find(admin=>admin.nombre===user && admin.rol==='Checker');
 
     setUserData({ user, password,isAdmin,isChecker,isEditor })
-    navigate('/profile')
+    if(!navHistory.length){
+      navigate('/home')
+  }
+  else{
+    navigate(history.back())
+  }
+    
   };
 
   const logout = () => {
@@ -36,7 +44,11 @@ function AuthProvider({ children }) {
     navigate('/')
   };
 
-  const auth = { userData, login, logout };
+  //paraguardar la historia de navegación 
+const [navHistory, setNavHistory] = React.useState([])
+console.log(navHistory)
+
+  const auth = { userData, login, logout,setNavHistory };
 
   return (
     //pasamos el auth como valor del provider para pode consumirlo

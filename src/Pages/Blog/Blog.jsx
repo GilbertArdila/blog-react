@@ -3,13 +3,19 @@ import { Outlet } from 'react-router-dom'
 import { BlogLink } from '../../Components'
 import './index.css'
 import {getData} from '../../Api/Services'
+import { useAuth } from '../../Login/auth'
 
 
 
 const Blog = () => {
+  //para la historia de navegación
+  const auth=useAuth();
+  let  setNavHistory=auth.setNavHistory;
+ 
   const [data, setData] = React.useState([]);
   React.useEffect(() => {
-    getData('/blogdata',setData)
+    getData('/blogdata',setData) 
+    setNavHistory(window.location.href)
   }, [])
   
   

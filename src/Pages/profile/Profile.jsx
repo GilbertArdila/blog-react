@@ -3,9 +3,14 @@ import { useAuth } from '../../Login/auth'
 import './index.css'
 
 const Profile = () => {
-  const auth=useAuth()
+ 
+  //para la historia de navegación
+  const auth=useAuth();
+  let  setNavHistory=auth.setNavHistory;
+  React.useEffect(() => {
+    setNavHistory(window.location.href)
+  }, [])
   
-
   return (
     <div className='profile'>
       <div className='profile-image'/>

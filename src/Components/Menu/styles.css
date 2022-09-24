@@ -29,4 +29,9 @@
     text-decoration: none;
    
 }
+.navbar-list__link img{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+}
 

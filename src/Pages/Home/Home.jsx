@@ -1,7 +1,15 @@
 import React from 'react'
+import { useAuth } from '../../Login/auth'
 import './styles.css'
 
 const Home = () => {
+  //para la historia de navegación
+  const auth=useAuth();
+  let  setNavHistory=auth.setNavHistory;
+  React.useEffect(() => {
+    setNavHistory(window.location.href)
+  }, [])
+ 
   return (
     <main >
      <h1 className='home-title'>El blog del desarrollador <span className='home-title_span'>frontend</span></h1>

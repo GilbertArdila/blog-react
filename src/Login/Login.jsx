@@ -13,7 +13,9 @@ const Login = () => {
     e.preventDefault();
     if(user==='' || password===''){
       alert('Por favor ingresa tus credenciales')
-    }else{
+    }
+   
+    else{
        //enviamos los datos a auth para la autenticación
    auth.login({user,password})
     }
@@ -24,7 +26,9 @@ const Login = () => {
 
  //si ya estamos logeados no podemos ir a login de nuevo
   if(auth.userData){
-    return <Navigate to={'/profile'}/>
+    
+      return <Navigate to={'/home'}/>
+    
   }
   return (
    <div className='login'>
