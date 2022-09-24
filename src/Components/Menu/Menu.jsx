@@ -66,4 +66,11 @@ routes.push({
     publicOnly:false,
     private:true
 });
+routes.push({
+    to:'/nuevo',
+    text:'Create',
+    src:'https://cdn0.iconfinder.com/data/icons/google-material-design-3-0/48/ic_create_48px-128.png',
+    publicOnly:false,
+    private:true
+});
 export  {Menu}

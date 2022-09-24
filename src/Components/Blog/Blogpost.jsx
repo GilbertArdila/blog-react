@@ -53,7 +53,14 @@ const Blogpost = ({setModal,setBlog,blog}) => {
         Revision:nuevaRevision,
         Blog:Blogpost.title
       }
-     postData('/revisiones',data)
+      if(nuevaRevision===''){
+        alert('debes escribir algo en el campo de revisión para poder hacer el envío')
+      }
+      else{
+        postData('/revisiones',data)
+        setNuevaRevision('');
+      }
+     
     }
   /********************************************************************** */
     let Blogpost;
