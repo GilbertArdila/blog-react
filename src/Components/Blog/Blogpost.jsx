@@ -85,7 +85,7 @@ const Blogpost = ({setModal,setBlog,blog}) => {
           <p>{`Blog:${' '}${rev.Blog}`}</p>
         </div>
       ))}
-      <button className=' btn warning' onClick={()=>onEdit(Blogpost.id)}>Editar blog</button>
+      
        <button
         className=' btn danger'
         onClick={()=>

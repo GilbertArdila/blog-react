@@ -1,19 +1,19 @@
 .bloglink-li a{
     font-size: 2rem;
-    color: blue;
-    text-decoration: none;
+    color: var(--secondary);
+    
 }
 .blogpost{
     width: 100%;
     
 }
 .blogpost-content{
-    font-size: 2rem;
-    margin: 5px 10px;
+    color: var(--primary-text);
+    margin: 10px 10px;
 }
 .blogopst-author{
     margin-left: 10px;
-    color: white;
+    color: var(--secondary);
 }
 .revisiones{
     width: 250px;
@@ -21,7 +21,7 @@
     color: white;
     margin: 5px auto;
     font-size: 2rem;
-    border:2px dotted blue
+    border:2px dotted var(--warning)
     
 }
 .checker{

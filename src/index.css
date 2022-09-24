@@ -1,3 +1,10 @@
+:root{
+  --primary:#f3c516;
+  --secondary:#e75e26;
+  --warning:#02a750;
+  --secondary-text:#757575;
+  --primary-text:#70a287;
+}
 *{
   box-sizing: border-box;
   margin: 0;
@@ -8,33 +15,33 @@ html{
 }
 body{
   font-size: 1.6rem;
+  background-color: var(--primary);
 }
 .btn{
    width:100px;
     padding: 2px;
     border-radius: 10px;
-    margin-left: 10px;
-    margin-top: 20px;
+   margin: 20px 30px;
     
 }
 .btn:hover{
-  transform: scale(1.5);
+  transform: scale(1.2);
 
 }
 .succes{
-  border: 1px solid blue;
+  border: 1px solid var(--secondary);
   
 }
 .succes:hover{
-  background-color: blue;
+  background-color: var(--secondary);
   color:black;
 }
 .warning{
-  border: 1px solid yellow;
+  border: 1px solid var(--warning);
   
 }
 .warning:hover{
-  background-color: yellow;
+  background-color: var(--warning);
   color:black;
 }
 .danger{
@@ -46,7 +53,12 @@ body{
   color:black;
 }
 h1{
-  font-size: 2rem;
+  font-size: 3rem;
     text-align: center;
     margin-bottom: 20px;
+    color: var(--primary-text);
+}
+p{
+  color: var(--secondary-text);
+  font-size: 2rem;
 }

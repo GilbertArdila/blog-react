@@ -23,6 +23,7 @@ function Modal({blog,setModal}){
     return ReactDOM.createPortal(
         <div  className='modal'>
             <form onSubmit={onUpdate}>
+                <span className='close' onClick={()=>setModal(false)}>X</span>
                 <textarea placeholder='ingresa el contenido de reemplazo'
                 rows="20" 
                 value={contenido}

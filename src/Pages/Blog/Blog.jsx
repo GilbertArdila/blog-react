@@ -16,7 +16,7 @@ const Blog = () => {
    
   return (
     <div className='blog'>
-    <h1>Blog</h1>
+    <h1>Blogs</h1>
     
     <ul>
       {data.length && data.map(post=>(
@@ -26,6 +26,7 @@ const Blog = () => {
     ))}
     </ul>
     <Outlet/>
+    <div className='blog-image'/>
     </div>
     
   )

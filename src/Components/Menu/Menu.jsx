@@ -15,7 +15,7 @@ const Menu = () => {
             return(
                 <li className='navbar-list__link'  key={route.text}>
                 <NavLink 
-                style={({isActive})=>({fontSize: isActive? '2rem':'1.6rem', color:isActive?'red':'white',textDecoration:isActive?'underline':'none'})}
+                style={({isActive})=>({fontSize: isActive? '2rem':'1.6rem', color:isActive?'#e75e26':'black',textDecoration:isActive?'underline':'none'})}
                 to={route.to}
                
 
