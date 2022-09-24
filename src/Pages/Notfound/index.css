@@ -1,0 +1,20 @@
+.notFound{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+.notFound div{
+ width: 350px;
+ height: 250px;
+ margin: 0 auto;
+ background-image: url('https://cdn3.iconfinder.com/data/icons/web-design-developemnt-ui-1/140/web__error__notfound__internet__404-128.png');
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: contain;
+}
+.notFound h3{
+    text-align: center;
+    color: var(--primary-text);
+}

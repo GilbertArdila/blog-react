@@ -1,4 +1,6 @@
 import React from 'react'
+import './index.css'
+import { useAuth } from '../../Login/auth';
 
 const NotFound = () => {
   //para la historia de navegación
@@ -8,7 +10,11 @@ const NotFound = () => {
     setNavHistory(window.location.href)
   }, [])
   return (
-    <div>NotFound</div>
+    <div className='notFound'>
+      <h1>Not found</h1>
+      <div/>
+      <h3>Valla parece que la página que buscas no existe!</h3>
+    </div>
   )
 }
 

@@ -46,7 +46,7 @@ function AuthProvider({ children }) {
 
   //paraguardar la historia de navegación 
 const [navHistory, setNavHistory] = React.useState([])
-console.log(navHistory)
+
 
   const auth = { userData, login, logout,setNavHistory };
 
