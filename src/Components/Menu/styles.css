@@ -24,6 +24,7 @@
 }
  .navbar-list__link:hover{
    transform: translateY(-20px);
+   transition-duration: 3s;
    
 } 
 .navbar-list__link::before{

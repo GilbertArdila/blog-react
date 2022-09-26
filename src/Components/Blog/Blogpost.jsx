@@ -20,8 +20,8 @@ const Blogpost = ({setModal,setBlog,blog}) => {
     const [revision, setRevision] = React.useState('')
     //useEffect para la revisión 
     React.useEffect(() => {
-      getData('/revisiones',setRevision);
-      getData('/blogdata',setBlogdata);
+      getData('/revisiones.json',setRevision);
+      getData('/blogdata.json',setBlogdata);
     }, [blogdata]);
     /********************************************************************** */
     

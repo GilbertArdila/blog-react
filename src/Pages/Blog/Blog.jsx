@@ -14,7 +14,7 @@ const Blog = () => {
  
   const [data, setData] = React.useState([]);
   React.useEffect(() => {
-    getData('/blogdata',setData) 
+    getData('/blogdata.json',setData) 
     setNavHistory(window.location.href)
   }, [])
   

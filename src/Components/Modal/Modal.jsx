@@ -16,7 +16,7 @@ function Modal({blog,setModal}){
         content:contenido
        }
        const id=blog.id
-       putData(`/blogdata/${id}`,data)
+       putData(`/blogdata.json/${id}`,data)
         setModal(false)
     }
 
