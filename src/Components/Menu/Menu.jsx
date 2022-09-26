@@ -13,7 +13,7 @@ const Menu = () => {
             if(route.publicOnly && auth.userData)return null
             if(route.private && !auth.userData) return null
             return(
-                <li className='navbar-list__link'  key={route.text}>
+                <li className='navbar-list__link'  key={route.text } data-content={route.text} >
                 <NavLink 
                 style={({isActive})=>({fontSize: isActive? '2rem':'1.6rem', color:isActive?'#e75e26':'black',textDecoration:isActive?'underline':'none'})}
                
@@ -28,6 +28,7 @@ const Menu = () => {
     </nav>
   )
 }
+ 
 
 
 const routes=[];
