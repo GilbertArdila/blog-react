@@ -16,6 +16,7 @@ const Blogpost = ({setModal,setBlog}) => {
     /************************************************************* */
     //para obtener los blogpost
     const [blogdata, setBlogdata] = React.useState([])
+    console.log(blogdata)
    
    
 
