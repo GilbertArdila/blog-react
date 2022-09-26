@@ -5,7 +5,7 @@ import {putData} from '../../Api/Services'
 
 
 function Modal({blog,setModal}){
-    const [contenido, setContenido] = React.useState('')
+    const [contenido, setContenido] = React.useState(blog.content)
    
 
     const onUpdate=(e)=>{
@@ -16,8 +16,11 @@ function Modal({blog,setModal}){
         content:contenido
        }
        const id=blog.id
-       putData(`/blogdata.json/${id}`,data)
+       putData(`/blogdata/${id}`,data)
         setModal(false)
+        
+        
+        
     }
 
     return ReactDOM.createPortal(

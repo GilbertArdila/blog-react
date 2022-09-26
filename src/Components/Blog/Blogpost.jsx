@@ -4,15 +4,19 @@ import { useAuth } from '../../Login/auth'
 import './index.css'
 import {getData,postData,deletePost} from '../../Api/Services'
 
-const Blogpost = ({setModal,setBlog,blog}) => {
+const Blogpost = ({setModal,setBlog}) => {
   
     const {slug}=useParams();
     const navigate= useNavigate();
     const auth=useAuth();
 
+
+   
+
     /************************************************************* */
     //para obtener los blogpost
     const [blogdata, setBlogdata] = React.useState([])
+   
    
 
     /********************************************************************** */
@@ -20,9 +24,9 @@ const Blogpost = ({setModal,setBlog,blog}) => {
     const [revision, setRevision] = React.useState('')
     //useEffect para la revisión 
     React.useEffect(() => {
-      getData('/revisiones.json',setRevision);
-      getData('/blogdata.json',setBlogdata);
-    }, [blogdata]);
+      getData('/revisiones',setRevision);
+      getData('/blogdata',setBlogdata);
+    }, []);
     /********************************************************************** */
     
     
@@ -34,6 +38,7 @@ const Blogpost = ({setModal,setBlog,blog}) => {
     const onEdit=(id)=>{
       setModal(true)
       setBlog(Blogpost)
+      navigate('/home')
       
       
     }
@@ -41,7 +46,8 @@ const Blogpost = ({setModal,setBlog,blog}) => {
     //para borrar algun blog
     const onDelete=(id)=>{
      deletePost(`/blogdata/${id}`)
-     navigate('/blog')
+     navigate('/home')
+     
     }
     /********************************************************************** */
 
@@ -59,6 +65,8 @@ const Blogpost = ({setModal,setBlog,blog}) => {
       else{
         postData('/revisiones',data)
         setNuevaRevision('');
+        navigate('/home')
+        
       }
      
     }

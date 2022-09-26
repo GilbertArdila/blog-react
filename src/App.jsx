@@ -8,16 +8,17 @@ function App() {
  const [modal, setModal] = React.useState(false)
  const [blog, setBlog] = React.useState('')
 
+ 
+
   return (
     <div className="App">
-      <Router 
+      <Router
       setModal={setModal}
       setBlog={setBlog}
       blog={blog}
       />
       {modal&& <Modal
       setModal={setModal}
-     
       blog={blog}
       />}
      

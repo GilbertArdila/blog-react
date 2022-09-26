@@ -1,2 +1,2 @@
-const API='https://blog-api-66973-default-rtdb.firebaseio.com/'
+const API='http://localhost:4000'
 export {API}

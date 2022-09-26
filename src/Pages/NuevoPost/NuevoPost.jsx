@@ -25,11 +25,12 @@ const NuevoPost = () => {
         alert('el contenido no debe ser menor a 50 carácteres')
        }
        else{
-        postData('/blogdata.json',data)
+        postData('/blogdata',data)
         setPost('');
         setCreador('');
         setTitulo('');
         navigate('/blog')
+       
 
        }
        
